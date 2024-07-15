@@ -8,12 +8,12 @@ import {Client} from "../models/client";
 export class InMemoryDataService implements InMemoryDbService{
   createDb() {
     const clients = [
-      { id: 1, nom: 'Dupont', prenom: 'Jean', dateVisite: '2023-07-13', adresse: '123 rue de Paris' },
-      { id: 2, nom: 'Durand', prenom: 'Marie', dateVisite: '2023-07-14', adresse: '456 avenue de Lyon' }
+      { id: 1, nom: 'Dupont', prenom: 'Jean', dateVisite: '2023-07-13', adresse: '64 bd berthelot clermont-ferrand' },
+      { id: 2, nom: 'Durand', prenom: 'Marie', dateVisite: '2023-07-14', adresse: '64 bd berthelot clermont-ferrand' }
     ];
     return { clients };
   }
-
+//généré les id des clients, non mis-en-place pour le moment.
   genId(clients: Client[]): number {
     let maxId = 0;
 

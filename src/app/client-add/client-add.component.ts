@@ -25,9 +25,9 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
   templateUrl: './client-add.component.html',
   styleUrl: './client-add.component.css'
 })
-export class ClientAddComponent implements OnInit{
+export class ClientAddComponent implements OnInit {
   clientForm: FormGroup;
-  clientId?:number;
+  clientId?: number;
 
   constructor(
     private fb: FormBuilder,
@@ -43,6 +43,7 @@ export class ClientAddComponent implements OnInit{
       adresse: ['', Validators.required]
     });
   }
+
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
     this.clientId = idParam !== null ? +idParam : undefined;
@@ -52,10 +53,12 @@ export class ClientAddComponent implements OnInit{
       });
     }
   }
+
   onSubmit(): void {
     if (this.clientForm.valid) {
-      const client: Client = { id: this.clientId ? this.clientId : 0, ...this.clientForm.value };
+      const client: Client = {...this.clientForm.value};
       if (this.clientId) {
+        client.id = this.clientId;
         this.clientService.updateClient(client).subscribe(() => {
           this.snackBar.open('Changements pris en compte', 'Fermer', {
             duration: 3000,
@@ -63,11 +66,12 @@ export class ClientAddComponent implements OnInit{
           this.router.navigate(['/']);
         });
       } else {
+        client.id = 0;
         this.clientService.addClient(client).subscribe(() => {
           this.snackBar.open('Client ajouté avec succès', 'Fermer', {
             duration: 3000,
           });
-          this.router.navigate(['/'])
+          this.router.navigate(['/']);
         });
       }
     }

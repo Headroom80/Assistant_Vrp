@@ -20,25 +20,27 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.css'
 })
-export class ClientListComponent implements OnInit{
-  clients:Client[]=[];
-  constructor(private clientService:ClientService, private router:Router, public dialog : MatDialog,private snackBar: MatSnackBar) {
+export class ClientListComponent implements OnInit {
+  clients: Client[] = [];
+
+  constructor(private clientService: ClientService, private router: Router, public dialog: MatDialog, private snackBar: MatSnackBar) {
   }
+
   ngOnInit(): void {
     this.clientService.getClients().subscribe(clients => {
       console.log("Liste des clients : ", clients);
       this.clients = clients;
     });
   };
-  editClient(clientId:number): void {
-    // Logique pour éditer un client
+
+  editClient(clientId: number): void {
     this.router.navigate(['/edit', clientId]);
   }
 
   confirmDelete(id: number): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
-      data: { id }
+      data: {id}
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {

@@ -20,6 +20,7 @@ div {
   display: flex;
   justify-content: flex-end;
 }
+
 .mat-snack-bar-container {
   background-color: #323232;
   color: #ffffff;
