@@ -1,0 +1,26 @@
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+button {
+  margin-right: 8px;
+}
+
+div {
+  display: flex;
+  justify-content: flex-end;
+}
+.mat-snack-bar-container {
+  background-color: #323232;
+  color: #ffffff;
+}

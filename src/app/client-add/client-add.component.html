@@ -1,0 +1,26 @@
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput id="nom" formControlName="nom">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prénom</mat-label>
+    <input matInput id="prenom" formControlName="prenom">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date de visite</mat-label>
+    <input matInput id="dateVisite" type="date" formControlName="dateVisite">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Adresse</mat-label>
+    <textarea matInput id="adresse" formControlName="adresse"></textarea>
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+    <button mat-button color="warn" routerLink="/">Annuler</button>
+  </div>
+</form>
